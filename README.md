@@ -1,6 +1,6 @@
 # Antibiotic_Phenotyping
 
-##🧪 Part 1: Segmentation Accuracy Evaluation of Cellpose on Antibiotic-Treated Images
+## 🧪 Part 1: Segmentation Accuracy Evaluation of Cellpose on Antibiotic-Treated Images
 
 In the first stage of this project, I systematically evaluated the performance of the Cellpose segmentation model on phase-contrast microscopy images of bacterial cells subjected to different antibiotics. Ground truth masks were manually annotated using FIJI, while model-generated masks were obtained via Cellpose.
 
