@@ -9,4 +9,4 @@ A cumulative confusion matrix was generated to summarise performance across all 
 
 This pipeline ensures reproducible, quantitative, and visual validation of Cellpose in biologically relevant conditions and lays the groundwork for the next phases of this study.
 
-![Sample Overlay](Screenshot 2025-05-26 at 18.30.05.png)
+![Sample Overlay](part1.png)
