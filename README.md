@@ -8,3 +8,5 @@ To quantify performance, I computed key pixel-level segmentation metrics—F1 sc
 A cumulative confusion matrix was generated to summarise performance across all images. Mean F1 and IoU scores exceeded 0.90 and 0.83, respectively, with recall consistently high, indicating the model captured nearly all true cell regions.
 
 This pipeline ensures reproducible, quantitative, and visual validation of Cellpose in biologically relevant conditions and lays the groundwork for the next phases of this study.
+
+![Sample Overlay](Screenshot 2025-05-26 at 18.30.05.png)
