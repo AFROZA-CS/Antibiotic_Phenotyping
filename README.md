@@ -28,3 +28,15 @@ In addition, the overall confusion matrix shows strong accuracy across all pixel
 
 <div align="center"> <img src="confusion_matrix_percent.png" width="300"/> <p style="text-align: center;"><em>Normalized confusion matrix across all images</em></p> </div>
 ✔These results confirm that the predicted masks are sufficiently accurate and can be reliably used for further morphological or phenotypic analysis.
+
+##  Part 2 — Single-Cell Phenotype Classification
+Segmented single-cell patches (membrane + DNA) were used to train a ResNet-18 model to classify antibiotic treatments based on morphology and fluorescence patterns.
+
+Output:
+Trained classification model
+
+Per-cell predictions (antibiotic label)
+
+Confusion matrix and feature maps
+
+This enables automated, high-throughput phenotype profiling from fluorescence microscopy.
