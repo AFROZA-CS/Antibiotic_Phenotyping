@@ -1,0 +1,47 @@
+setBatchMode(true);
+
+// === Folder selection ===
+inputFolder = getDirectory("Choose folder with original images");
+roiFolder   = getDirectory("Choose folder with saved ROI .zip files");
+outputFolder = getDirectory("Choose folder to save instance-labeled masks");
+
+list = getFileList(inputFolder);
+
+for (i = 0; i < list.length; i++) {
+    filename = list[i];
+
+    if (endsWith(filename, ".tif") || endsWith(filename, ".png")) {
+        base = replace(filename, ".tif", "");
+        base = replace(base, ".png", "");
+
+        open(inputFolder + filename);
+        width = getWidth();
+        height = getHeight();
+
+        roiPath = roiFolder + base + ".zip";
+        if (File.exists(roiPath)) {
+            roiManager("Reset");
+            roiManager("Open", roiPath);
+
+            // Create blank 16-bit label mask
+            newImage("InstanceMask", "16-bit black", width, height, 1);
+            for (r = 0; r < roiManager("count"); r++) {
+                roiManager("Select", r);
+                setColor(r + 1); // Label starts from 1
+                run("Fill", "slice");
+            }
+
+            saveAs("Tiff", outputFolder + base + "_instance.tif");
+            close("InstanceMask");
+            roiManager("Reset");
+        } else {
+            print("⚠️ No ROI file for: " + filename);
+        }
+
+        close(filename);
+        run("Clear Results");
+    }
+}
+
+setBatchMode(false);
+print("✅ All labeled instance masks saved to: " + outputFolder);
