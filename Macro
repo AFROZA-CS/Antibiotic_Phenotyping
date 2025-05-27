@@ -1,0 +1,54 @@
+setBatchMode(true);
+
+// === Step 1: Choose folders ===
+input = getDirectory("Choose the input folder with images");
+output = getDirectory("Choose the folder to save labeled masks");
+
+list = getFileList(input);
+
+for (i = 0; i < list.length; i++) {
+    open(input + list[i]);
+    title = getTitle();
+    name = replace(title, ".png", ""); // support .png or change to .tif if needed
+    name = replace(name, ".tif", "");
+
+    // === Step 2: Convert and Threshold ===
+    run("8-bit");
+    setAutoThreshold("Default");
+    setOption("BlackBackground", true);
+    run("Convert to Mask");
+
+    // === Step 3: Separate touching cells ===
+    run("Fill Holes");
+    run("Watershed");
+
+    // === Step 4: Analyze Particles to collect ROIs ===
+    run("Set Measurements...", "area mean centroid redirect=None decimal=3");
+    run("Analyze Particles...", "add"); // no size filter
+
+    roiCount = roiManager("count");
+
+    // === Step 5: Create labeled instance mask if ROIs exist ===
+    if (roiCount > 0) {
+        newImage("InstanceMask", "16-bit black", getWidth(), getHeight(), 1);
+        for (r = 0; r < roiCount; r++) {
+            roiManager("Select", r);
+            setColor(r + 1); // Label starts at 1
+            run("Fill", "slice");
+        }
+
+        saveAs("Tiff", output + name + "_instance.tif");
+        close("InstanceMask");
+    } else {
+        print("⚠️ No objects found in: " + name);
+    }
+
+    // === Cleanup ===
+    roiManager("Deselect");
+    roiManager("Delete");
+    close(title);
+    run("Clear Results");
+}
+
+setBatchMode(false);
+print("🎉 Done. All instance-labeled masks saved to: " + output);
