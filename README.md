@@ -9,3 +9,21 @@ This pipeline ensures reproducible, quantitative, and visual validation of Cellp
 <p align="center">
   <img src="part1.png" width="400"/>
 </p>
+
+✅ Segmentation Mask Validation : Pixel-wise Metrics
+
+To verify the quality of Cellpose-generated segmentation masks, we performed pixel-level comparison against manually annotated ground truth. Metrics such as F1 Score, IoU, Precision, Recall, and Accuracy were computed for each image.
+
+<div align="center"> <img src="./segmentation_mask/outputs/Screenshot%202025-05-27%20at%2019.01.50.png" width="720"/> <p style="text-align: center;"><em>Per-image segmentation metrics (F1, IoU, Precision, etc.)</em></p> </div>
+The results demonstrate high agreement between predicted and ground truth masks, with:
+
+Mean F1 Score ≈ 0.91
+
+Mean IoU ≈ 0.83
+
+Mean Recall ≈ 0.97
+
+In addition, the overall confusion matrix shows strong accuracy across all pixels:
+
+<div align="center"> <img src="./segmentation_mask/outputs/confusion_matrix_percent.png" width="300"/> <p style="text-align: center;"><em>Normalized confusion matrix across all images</em></p> </div>
+✔️ These results confirm that the predicted masks are sufficiently accurate and can be reliably used for further morphological or phenotypic analysis.
