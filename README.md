@@ -37,13 +37,10 @@ Objective:
 Extract single bacterial cells from microscopy images using segmentation masks, then classify them based on morphological features visible in membrane (red) and DNA (blue) channels.
 
 ## Process:
-Used validated masks to extract individual cells
-
-Resized cells to 64×64 patches
-
-Labeled each patch by antibiotic condition
-
-Trained a lightweight CNN classifier to predict the antibiotic class based on visual features
+1.Used validated masks to extract individual cells
+2.Resized cells to 64×64 patches
+3.Labeled each patch by antibiotic condition
+4.Trained a lightweight CNN classifier to predict the antibiotic class based on visual features
 
 ## Dataset Summary:
 Class	Cell Count
@@ -56,16 +53,15 @@ Total	447
 
 ## Classifier Used:
 Model: CNN with 2 convolutional layers + dense layers
-
 Input: RGB patches (64×64)
-
 Output: Antibiotic class (5-way classification)
-
 Split: 80% train / 20% test (random across all classes)
 
 ## Classification Results:
 <p align="center"> <img src="model_cm.png" alt="Confusion Matrix" width="500"/> </p>
 Training Accuracy: ~99%
+Test Accuracy: High accuracy observed for dominant classes
+Morphological traits helped the model learn drug-induced differences
 
 # Part 3: Morphological Feature Analysis by Antibiotic Class
 
