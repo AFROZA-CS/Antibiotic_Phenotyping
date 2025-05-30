@@ -67,6 +67,8 @@ Split: 80% train / 20% test (random across all classes)
 <p align="center"> <img src="model_cm.png" alt="Confusion Matrix" width="500"/> </p>
 Training Accuracy: ~99%
 
+# Part 3: Morphological Feature Analysis by Antibiotic Class
+
 Test Accuracy: High accuracy observed for dominant classes
 
 Morphological traits helped the model learn drug-induced differences
