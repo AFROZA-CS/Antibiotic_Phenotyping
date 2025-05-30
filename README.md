@@ -44,11 +44,17 @@ Extract single bacterial cells from microscopy images using segmentation masks, 
 
 ## Dataset Summary:
 Class	Cell Count
+
 Control	75
+
 Antibiotic_A	78
+
 Antibiotic_B	82
+
 Antibiotic_C	174
+
 Antibiotic_D	38
+
 Total	447
 
 ## Classifier Used:
@@ -65,6 +71,4 @@ Morphological traits helped the model learn drug-induced differences
 
 # Part 3: Morphological Feature Analysis by Antibiotic Class
 
-Test Accuracy: High accuracy observed for dominant classes
 
-Morphological traits helped the model learn drug-induced differences
