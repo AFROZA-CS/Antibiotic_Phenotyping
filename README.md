@@ -29,14 +29,14 @@ In addition, the overall confusion matrix shows strong accuracy across all pixel
 <div align="center"> <img src="confusion_matrix_percent.png" width="300"/> <p style="text-align: center;"><em>Normalized confusion matrix across all images</em></p> </div>
 ✔These results confirm that the predicted masks are sufficiently accurate and can be reliably used for further morphological or phenotypic analysis.
 
-##  Part 2 — Single-Cell Extraction & Classification
+#  Part 2 — Single-Cell Extraction & Classification
 Segmented single-cell patches (membrane + DNA) were used to train a ResNet-18 model to classify antibiotic treatments based on morphology and fluorescence patterns.
 
 Output:
 Objective:
 Extract single bacterial cells from microscopy images using segmentation masks, then classify them based on morphological features visible in membrane (red) and DNA (blue) channels.
 
-# Process:
+## Process:
 Used validated masks to extract individual cells
 
 Resized cells to 64×64 patches
@@ -45,7 +45,7 @@ Labeled each patch by antibiotic condition
 
 Trained a lightweight CNN classifier to predict the antibiotic class based on visual features
 
-# Dataset Summary:
+## Dataset Summary:
 Class	Cell Count
 Control	75
 Antibiotic_A	78
@@ -54,7 +54,7 @@ Antibiotic_C	174
 Antibiotic_D	38
 Total	447
 
-# Classifier Used:
+## Classifier Used:
 Model: CNN with 2 convolutional layers + dense layers
 
 Input: RGB patches (64×64)
@@ -63,8 +63,8 @@ Output: Antibiotic class (5-way classification)
 
 Split: 80% train / 20% test (random across all classes)
 
-# Classification Results:
-<p align="center"> <img src="your_repo_path/confusion_matrix_percent.png" alt="Confusion Matrix" width="500"/> </p>
+## Classification Results:
+<p align="center"> <img src="model_cm.png" alt="Confusion Matrix" width="500"/> </p>
 Training Accuracy: ~99%
 
 Test Accuracy: High accuracy observed for dominant classes
