@@ -71,4 +71,27 @@ Morphological traits helped the model learn drug-induced differences
 
 # Part 3: Morphological Feature Analysis by Antibiotic Class
 
+To quantify and compare DNA and membrane morphology across antibiotics using image-derived features from single-cell segmentation. This analysis aims to understand how different antibiotics affect bacterial structure.
+
+ What We Did
+Step	Description
+1. Channel Isolation	Extracted the DNA (blue) and membrane (red) channels from each cell patch.
+2. Feature Extraction	Computed key morphological features:
+– Mean intensity	
+– Signal area	
+– Circularity	
+– DNA-to-membrane intensity ratio	
+– Optional texture metrics (entropy, variance)	
+3. Control Comparison	Compared each antibiotic’s feature distribution with the control group to detect structural shifts.
+4. Visualization	Presented per-cell visual summaries with metrics overlay, enabling qualitative assessment across classes.
+
+ Outcome
+This stage provides:
+
+Insight into how each antibiotic alters DNA or membrane morphology
+
+A quantitative summary of per-channel cell behavior
+
+Foundational features for downstream classification (Part 4)
+
 
