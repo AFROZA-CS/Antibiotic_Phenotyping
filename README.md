@@ -90,6 +90,22 @@ This stage provides:
 
 Insight into how each antibiotic alters DNA or membrane morphology
 
+| #  | Model Name                   | Architecture Type           | Highlights & Purpose                                            |
+| -- | ---------------------------- | --------------------------- | --------------------------------------------------------------- |
+| 1  | **ResNet-18**                | CNN (Residual Network)      | Baseline classifier with skip connections                       |
+| 2  | **VGG-16**                   | CNN (Deep Sequential)       | Classic deep CNN for comparison                                 |
+| 3  | **DenseNet-121**             | CNN (Densely Connected)     | Encourages feature reuse across layers                          |
+| 4  | **MobileNet V2**             | Lightweight CNN             | Designed for efficient, mobile-friendly models                  |
+| 5  | **Inception V3**             | Multi-path CNN              | Uses varied kernel sizes for multi-scale feature extraction     |
+| 6  | **ViT (Vision Transformer)** | Transformer-based Vision    | Global context via patch-based attention                        |
+| 7  | **ConvNeXt-Tiny**            | Modern CNN                  | Combines ConvNets with Transformer design cues                  |
+| 8  | **Swin Transformer**         | Hierarchical Transformer    | Local to global attention using shifting windows                |
+| 9  | **MaxViT**                   | Hybrid CNN + Transformer    | Combines convolution and attention for rich representation      |
+| 10 | **RegNetY-400MF**            | Efficient CNN               | Optimized scalable model with good accuracy-efficiency tradeoff |
+| 11 | **CoAtNet**                  | CNN + Transformer Hybrid    | Balances inductive bias and generalization                      |
+| 12 | **BEiT v2**                  | Self-supervised Transformer | Learns strong features via masked image modeling                |
+
+
 A quantitative summary of per-channel cell behavior
 
 Foundational features for downstream classification (Part 4)
